@@ -12,8 +12,8 @@ const {
   config: {
     component: COMPONENT_NAME,
     externals: COMPONENT_EXTERNALS = {
-      // react: 'React',
-      // 'react-dom': 'ReactDOM',
+      react: 'React',
+      'react-dom': 'ReactDOM',
     },
     include: INCLUDE_JS = [
       // 'https://unpkg.com/react@18.3.1/umd/react.production.min.js',
