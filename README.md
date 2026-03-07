@@ -14,6 +14,12 @@ Based on [copy-to-clipboard](https://npm.im/copy-to-clipboard)
 
 ## Installation
 
+### Yarn
+
+```sh
+yarn add react-copy-to-clipboard
+```
+
 ### NPM
 
 ```sh
@@ -22,21 +28,13 @@ npm install --save react-copy-to-clipboard
 
 Don't forget to manually install peer dependencies (`react`) if you use npm@3.
 
-
-### 1998 Script Tag:
-```html
-<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-copy-to-clipboard/build/react-copy-to-clipboard.js"></script>
-(Module exposed as `CopyToClipboard`)
-```
-
 ## Simple web demo
 
-[http://nkbt.github.io/react-copy-to-clipboard](http://nkbt.github.io/react-copy-to-clipboard)
+[https://nkbt.github.io/react-copy-to-clipboard](https://nkbt.github.io/react-copy-to-clipboard)
 
 ## Codepen demo
 
-[http://codepen.io/nkbt/pen/eNPoQv](http://codepen.io/nkbt/pen/eNPoQv?editors=0010)
+[https://codepen.io/nkbt/pen/eNPoQv](https://codepen.io/nkbt/pen/eNPoQv?editors=0010)
 
 ## Usage
 ```js
@@ -95,13 +93,13 @@ onCopy(text, result)
 `result (bool)`: Returns `true` if copied successfully, else `false`.
 
 
-#### `options`: PropTypes.shape({debug: bool, message: string})
+#### `options`: PropTypes.shape({debug: bool, message: string, format: string})
 
 Optional [copy-to-clipboard](https://npm.im/copy-to-clipboard) options.
 
 See [API docs](https://npm.im/copy-to-clipboard#api) for details
 
-#### `children`: PropTypes.node.isRequired
+#### `children`: PropTypes.element.isRequired
 
 CopyToClipboard is a simple wrapping component, it does not render any tags, so it requires the only child element to be present, which will be used to capture clicks.
 
@@ -113,7 +111,7 @@ CopyToClipboard is a simple wrapping component, it does not render any tags, so 
 
 ## Development and testing
 
-Currently is being developed and tested with the latest stable `Node 8` on `OSX`.
+Currently is being developed and tested with the latest stable `Node` on `OSX`.
 
 To run example covering all `CopyToClipboard` features, use `yarn start`, which will compile `example/Example.js`
 
@@ -130,17 +128,11 @@ open http://localhost:8080
 ## Tests
 
 ```bash
-# to run ESLint check
+# to run Biome check
 yarn lint
 
 # to run tests
 yarn test
-
-# to run end-to-end tests
-# first, run `selenium/standalone-firefox:3.4.0` docker image
-docker run -p 4444:4444 selenium/standalone-firefox:3.4.0
-# then run test
-yarn e2e
 ```
 
 ## License
