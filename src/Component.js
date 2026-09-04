@@ -24,11 +24,14 @@ export class CopyToClipboard extends React.PureComponent {
 
     const elem = React.Children.only(children);
 
-    const result = copy(text, options);
-
-    if (onCopy) {
-      onCopy(text, result);
-    }
+    // copy-to-clipboard@4+ returns a Promise<boolean> (it tries the async
+    // Clipboard API first); wrap in Promise.resolve so the 3.x synchronous
+    // boolean also works, and report the real result once it settles.
+    Promise.resolve(copy(text, options)).then((result) => {
+      if (onCopy) {
+        onCopy(text, result);
+      }
+    });
 
     // Bypass onClick if it was present
     if (elem?.props && typeof elem.props.onClick === 'function') {
